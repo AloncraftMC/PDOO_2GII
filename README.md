@@ -1,6 +1,6 @@
 # Programación y Diseño Orientado a Objetos
 
-> 2º de Grado en Ingeniería Informática, Universidad de La Laguna
+> 2º de Grado en Ingeniería Informática
 
 ## Prácticas
 
