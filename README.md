@@ -138,6 +138,32 @@
 	- [`textUI.rb`](Irrgarten/Pr%C3%A1ctica%204/Ruby/textUI.rb)
 	- [`weapon.rb`](Irrgarten/Pr%C3%A1ctica%204/Ruby/weapon.rb)
 
+#### Práctica 5
+- Enunciado: [P5.pdf](Irrgarten/Pr%C3%A1ctica%205/P5.pdf)
+	- [`CardDeck.java`](Irrgarten/Pr%C3%A1ctica%205/IrrgartenP5/src/irrgarten/CardDeck.java)
+	- [`CombatElement.java`](Irrgarten/Pr%C3%A1ctica%205/IrrgartenP5/src/irrgarten/CombatElement.java)
+	- [`Controller.java`](Irrgarten/Pr%C3%A1ctica%205/IrrgartenP5/src/irrgarten/controller/Controller.java)
+	- [`Cursors.java`](Irrgarten/Pr%C3%A1ctica%205/IrrgartenP5/src/irrgarten/UI/Cursors.java)
+	- [`Dice.java`](Irrgarten/Pr%C3%A1ctica%205/IrrgartenP5/src/irrgarten/Dice.java)
+	- [`Directions.java`](Irrgarten/Pr%C3%A1ctica%205/IrrgartenP5/src/irrgarten/Directions.java)
+	- [`FuzzyPlayer.java`](Irrgarten/Pr%C3%A1ctica%205/IrrgartenP5/src/irrgarten/FuzzyPlayer.java)
+	- [`Game.java`](Irrgarten/Pr%C3%A1ctica%205/IrrgartenP5/src/irrgarten/Game.java)
+	- [`GameCharacter.java`](Irrgarten/Pr%C3%A1ctica%205/IrrgartenP5/src/irrgarten/GameCharacter.java)
+	- [`GameFrame.java`](Irrgarten/Pr%C3%A1ctica%205/IrrgartenP5/src/irrgarten/UI/GameFrame.java)
+	- [`GameState.java`](Irrgarten/Pr%C3%A1ctica%205/IrrgartenP5/src/irrgarten/GameState.java)
+	- [`Labyrinth.java`](Irrgarten/Pr%C3%A1ctica%205/IrrgartenP5/src/irrgarten/Labyrinth.java)
+	- [`LabyrinthCharacter.java`](Irrgarten/Pr%C3%A1ctica%205/IrrgartenP5/src/irrgarten/LabyrinthCharacter.java)
+	- [`Main.java`](Irrgarten/Pr%C3%A1ctica%205/IrrgartenP5/src/irrgarten/Main.java)
+	- [`Monster.java`](Irrgarten/Pr%C3%A1ctica%205/IrrgartenP5/src/irrgarten/Monster.java)
+	- [`Orientation.java`](Irrgarten/Pr%C3%A1ctica%205/IrrgartenP5/src/irrgarten/Orientation.java)
+	- [`Player.java`](Irrgarten/Pr%C3%A1ctica%205/IrrgartenP5/src/irrgarten/Player.java)
+	- [`Shield.java`](Irrgarten/Pr%C3%A1ctica%205/IrrgartenP5/src/irrgarten/Shield.java)
+	- [`ShieldCardDeck.java`](Irrgarten/Pr%C3%A1ctica%205/IrrgartenP5/src/irrgarten/ShieldCardDeck.java)
+	- [`TextUI.java`](Irrgarten/Pr%C3%A1ctica%205/IrrgartenP5/src/irrgarten/UI/TextUI.java)
+	- [`UI.java`](Irrgarten/Pr%C3%A1ctica%205/IrrgartenP5/src/irrgarten/UI/UI.java)
+	- [`Weapon.java`](Irrgarten/Pr%C3%A1ctica%205/IrrgartenP5/src/irrgarten/Weapon.java)
+	- [`WeaponCardDeck.java`](Irrgarten/Pr%C3%A1ctica%205/IrrgartenP5/src/irrgarten/WeaponCardDeck.java)
+
 ## Ejercicios
 
 #### Ejercicio 1
