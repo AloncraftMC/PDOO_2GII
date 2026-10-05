@@ -58,7 +58,7 @@
 	- [`weapon.rb`](Irrgarten/Pr%C3%A1ctica%202/Ruby/weapon.rb)
 
 #### Práctica 3
-- Enunciado y diagramas:
+- Enunciado y Diagramas:
 	- [P3.pdf](Irrgarten/Pr%C3%A1ctica%203/P3.pdf)
 	- [DC-P3.pdf](Irrgarten/Pr%C3%A1ctica%203/DC-P3.pdf)
 	- [Diagramas-P3.pdf](Irrgarten/Pr%C3%A1ctica%203/Diagramas-P3.pdf)
@@ -93,6 +93,50 @@
 	- [`shield.rb`](Irrgarten/Pr%C3%A1ctica%203/Ruby/shield.rb)
 	- [`textUI.rb`](Irrgarten/Pr%C3%A1ctica%203/Ruby/textUI.rb)
 	- [`weapon.rb`](Irrgarten/Pr%C3%A1ctica%203/Ruby/weapon.rb)
+
+#### Práctica 4
+- Enunciado y Diagrama de Clases:
+	- [P4.pdf](Irrgarten/Pr%C3%A1ctica%204/P4.pdf)
+	- [DC-P4.pdf](Irrgarten/Pr%C3%A1ctica%204/DC-P4.pdf)
+- Java:
+	- [`CardDeck.java`](Irrgarten/Pr%C3%A1ctica%204/Java/IrrgartenP4/src/irrgarten/CardDeck.java)
+	- [`CombatElement.java`](Irrgarten/Pr%C3%A1ctica%204/Java/IrrgartenP4/src/irrgarten/CombatElement.java)
+	- [`Controller.java`](Irrgarten/Pr%C3%A1ctica%204/Java/IrrgartenP4/src/irrgarten/controller/Controller.java)
+	- [`Dice.java`](Irrgarten/Pr%C3%A1ctica%204/Java/IrrgartenP4/src/irrgarten/Dice.java)
+	- [`Directions.java`](Irrgarten/Pr%C3%A1ctica%204/Java/IrrgartenP4/src/irrgarten/Directions.java)
+	- [`FuzzyPlayer.java`](Irrgarten/Pr%C3%A1ctica%204/Java/IrrgartenP4/src/irrgarten/FuzzyPlayer.java)
+	- [`Game.java`](Irrgarten/Pr%C3%A1ctica%204/Java/IrrgartenP4/src/irrgarten/Game.java)
+	- [`GameCharacter.java`](Irrgarten/Pr%C3%A1ctica%204/Java/IrrgartenP4/src/irrgarten/GameCharacter.java)
+	- [`GameState.java`](Irrgarten/Pr%C3%A1ctica%204/Java/IrrgartenP4/src/irrgarten/GameState.java)
+	- [`Labyrinth.java`](Irrgarten/Pr%C3%A1ctica%204/Java/IrrgartenP4/src/irrgarten/Labyrinth.java)
+	- [`LabyrinthCharacter.java`](Irrgarten/Pr%C3%A1ctica%204/Java/IrrgartenP4/src/irrgarten/LabyrinthCharacter.java)
+	- [`Main.java`](Irrgarten/Pr%C3%A1ctica%204/Java/IrrgartenP4/src/irrgarten/Main.java)
+	- [`Monster.java`](Irrgarten/Pr%C3%A1ctica%204/Java/IrrgartenP4/src/irrgarten/Monster.java)
+	- [`Orientation.java`](Irrgarten/Pr%C3%A1ctica%204/Java/IrrgartenP4/src/irrgarten/Orientation.java)
+	- [`Player.java`](Irrgarten/Pr%C3%A1ctica%204/Java/IrrgartenP4/src/irrgarten/Player.java)
+	- [`Shield.java`](Irrgarten/Pr%C3%A1ctica%204/Java/IrrgartenP4/src/irrgarten/Shield.java)
+	- [`ShieldCardDeck.java`](Irrgarten/Pr%C3%A1ctica%204/Java/IrrgartenP4/src/irrgarten/ShieldCardDeck.java)
+	- [`TextUI.java`](Irrgarten/Pr%C3%A1ctica%204/Java/IrrgartenP4/src/irrgarten/UI/TextUI.java)
+	- [`Weapon.java`](Irrgarten/Pr%C3%A1ctica%204/Java/IrrgartenP4/src/irrgarten/Weapon.java)
+	- [`WeaponCardDeck.java`](Irrgarten/Pr%C3%A1ctica%204/Java/IrrgartenP4/src/irrgarten/WeaponCardDeck.java)
+- Ruby:
+	- [`combat_element.rb`](Irrgarten/Pr%C3%A1ctica%204/Ruby/combat_element.rb)
+	- [`controller.rb`](Irrgarten/Pr%C3%A1ctica%204/Ruby/controller.rb)
+	- [`dice.rb`](Irrgarten/Pr%C3%A1ctica%204/Ruby/dice.rb)
+	- [`directions.rb`](Irrgarten/Pr%C3%A1ctica%204/Ruby/directions.rb)
+	- [`fuzzy_player.rb`](Irrgarten/Pr%C3%A1ctica%204/Ruby/fuzzy_player.rb)
+	- [`game.rb`](Irrgarten/Pr%C3%A1ctica%204/Ruby/game.rb)
+	- [`game_character.rb`](Irrgarten/Pr%C3%A1ctica%204/Ruby/game_character.rb)
+	- [`game_state.rb`](Irrgarten/Pr%C3%A1ctica%204/Ruby/game_state.rb)
+	- [`labyrinth.rb`](Irrgarten/Pr%C3%A1ctica%204/Ruby/labyrinth.rb)
+	- [`labyrinth_character.rb`](Irrgarten/Pr%C3%A1ctica%204/Ruby/labyrinth_character.rb)
+	- [`main.rb`](Irrgarten/Pr%C3%A1ctica%204/Ruby/main.rb)
+	- [`monster.rb`](Irrgarten/Pr%C3%A1ctica%204/Ruby/monster.rb)
+	- [`orientation.rb`](Irrgarten/Pr%C3%A1ctica%204/Ruby/orientation.rb)
+	- [`player.rb`](Irrgarten/Pr%C3%A1ctica%204/Ruby/player.rb)
+	- [`shield.rb`](Irrgarten/Pr%C3%A1ctica%204/Ruby/shield.rb)
+	- [`textUI.rb`](Irrgarten/Pr%C3%A1ctica%204/Ruby/textUI.rb)
+	- [`weapon.rb`](Irrgarten/Pr%C3%A1ctica%204/Ruby/weapon.rb)
 
 ## Ejercicios
 
