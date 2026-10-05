@@ -2,7 +2,7 @@
 
 > 2º de Grado en Ingeniería Informática
 
-## Prácticas
+## Irrgarten
 
 #### Práctica 0
 - Enunciado: [P0.pdf](Pr%C3%A1ctica%200/P0.pdf)
@@ -93,3 +93,15 @@
 	- [`shield.rb`](Irrgarten/Pr%C3%A1ctica%203/Ruby/shield.rb)
 	- [`textUI.rb`](Irrgarten/Pr%C3%A1ctica%203/Ruby/textUI.rb)
 	- [`weapon.rb`](Irrgarten/Pr%C3%A1ctica%203/Ruby/weapon.rb)
+
+## Ejercicios
+
+#### Ejercicio 1
+- Java:
+	- [`Main.java`](Ejercicios/Ejercicio%201/Java/Ejercicio1/src/ejercicio1/Main.java)
+	- [`RolUsuario.java`](Ejercicios/Ejercicio%201/Java/Ejercicio1/src/ejercicio1/RolUsuario.java)
+	- [`Usuario.java`](Ejercicios/Ejercicio%201/Java/Ejercicio1/src/ejercicio1/Usuario.java)
+- Ruby:
+	- [`main.rb`](Ejercicios/Ejercicio%201/Ruby/main.rb)
+	- [`rol_usuario.rb`](Ejercicios/Ejercicio%201/Ruby/rol_usuario.rb)
+	- [`usuario.rb`](Ejercicios/Ejercicio%201/Ruby/usuario.rb)
