@@ -1,5 +1,5 @@
-require_relative "RolUsuario"
-require_relative "Usuario"
+require_relative "rol_usuario"
+require_relative "usuario"
 
 usuario1 = Usuario.new("Fulano", "fulano@mail.com", RolUsuario::BASICO)
 usuario2 = Usuario.new("Dios", "dios@god.com", RolUsuario::ADMIN)
