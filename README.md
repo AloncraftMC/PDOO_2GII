@@ -175,3 +175,13 @@
 	- [`main.rb`](Ejercicios/Ejercicio%201/Ruby/main.rb)
 	- [`rol_usuario.rb`](Ejercicios/Ejercicio%201/Ruby/rol_usuario.rb)
 	- [`usuario.rb`](Ejercicios/Ejercicio%201/Ruby/usuario.rb)
+
+#### Ejercicio 2
+- Java:
+	- [`Main.java`](Ejercicios/Ejercicio%202/Java/Ejercicio2/src/main/Main.java)
+	- [`RolUsuario.java`](Ejercicios/Ejercicio%202/Java/Ejercicio2/src/usuario/RolUsuario.java)
+	- [`Usuario.java`](Ejercicios/Ejercicio%202/Java/Ejercicio2/src/usuario/Usuario.java)
+- Ruby:
+	- [`main.rb`](Ejercicios/Ejercicio%202/Ruby/main.rb)
+	- [`rol_usuario.rb`](Ejercicios/Ejercicio%202/Ruby/rol_usuario.rb)
+	- [`usuario.rb`](Ejercicios/Ejercicio%202/Ruby/usuario.rb)
