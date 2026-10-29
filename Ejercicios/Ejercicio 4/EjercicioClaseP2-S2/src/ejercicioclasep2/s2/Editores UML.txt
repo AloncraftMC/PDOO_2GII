@@ -1,0 +1,25 @@
+Herramientas Online:
+____________________________________________________
+
+Visual Paradigm:
+https://online.visual-paradigm.com/drive/#proj=0&dashboard
+
+SmartDraw:
+https://app.smartdraw.com/?nsu=1
+
+AppDiagrams
+https://app.diagrams.net/
+
+Creatly:
+https://creately.com/lp/uml-diagram-tool/
+
+Herramientas de escritorio (multiplataforma):
+_________________________________________________
+Visual Paradigm (Community Edition)
+https://www.visual-paradigm.com/download/community.jsp
+
+Staruml:
+https://staruml.io/download/
+
+ArgoUml:
+https://argouml-tigris-org.github.io/tigris/argouml/

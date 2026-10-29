@@ -197,3 +197,24 @@
 	- [`conductor.rb`](Ejercicios/Ejercicio%203/Ruby/conductor.rb)
 	- [`motor.rb`](Ejercicios/Ejercicio%203/Ruby/motor.rb)
 	- [`main.rb`](Ejercicios/Ejercicio%203/Ruby/main.rb)
+
+#### Ejercicio 4
+- Java:
+	- [`Comentario.java`](Ejercicios/Ejercicio%204/EjercicioClaseP2-S2/src/ejercicioclasep2/s2/Comentario.java)
+	- [`Grupo.java`](Ejercicios/Ejercicio%204/EjercicioClaseP2-S2/src/ejercicioclasep2/s2/Grupo.java)
+	- [`Publicacion.java`](Ejercicios/Ejercicio%204/EjercicioClaseP2-S2/src/ejercicioclasep2/s2/Publicacion.java)
+	- [`TipoUsuario.java`](Ejercicios/Ejercicio%204/EjercicioClaseP2-S2/src/ejercicioclasep2/s2/TipoUsuario.java)
+	- [`Usuario.java`](Ejercicios/Ejercicio%204/EjercicioClaseP2-S2/src/ejercicioclasep2/s2/Usuario.java)
+	- [`Utils.java`](Ejercicios/Ejercicio%204/EjercicioClaseP2-S2/src/ejercicioclasep2/s2/Utils.java)
+- Diagrama:
+	- [`PDOO Ejercicio 4.png`](Ejercicios/Ejercicio%204/PDOO%20Ejercicio%204.png)
+
+#### Ejercicio 5
+- Ruby:
+	- [`controlador.rb`](Ejercicios/Ejercicio%205/Practica3Sesion1/controlador/controlador.rb)
+	- [`main.rb`](Ejercicios/Ejercicio%205/Practica3Sesion1/main.rb)
+	- [`contacto.rb`](Ejercicios/Ejercicio%205/Practica3Sesion1/modelo/contacto.rb)
+	- [`usuario.rb`](Ejercicios/Ejercicio%205/Practica3Sesion1/modelo/usuario.rb)
+	- [`vista.rb`](Ejercicios/Ejercicio%205/Practica3Sesion1/vista/vista.rb)
+- Diagrama:
+	- [`Sequence Diagram1.jpg`](Ejercicios/Ejercicio%205/Sequence%20Diagram1.jpg)
