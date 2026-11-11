@@ -76,10 +76,11 @@ public class Labyrinth {
         throw new UnsupportedOperationException();
     }
     
-    public Directions[] validMoves(int row, int col){
+    public ArrayList<Directions> validMoves(int row, int col){
         throw new UnsupportedOperationException();
     }
     
+    @Override
     public String toString(){
         
         String string = "";

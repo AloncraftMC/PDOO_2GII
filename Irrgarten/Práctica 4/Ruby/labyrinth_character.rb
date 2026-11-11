@@ -43,14 +43,10 @@ module Irrgarten
 			
 		end
 
-		def got_wounded
-			@health -= 1
-		end
-
 		def to_s
-			return "[#{@health} ♥] #{@name} at #{@row}, #{@col}\n
-				Intelligence: #{@intelligence}\n
-				Strength: #{@strength}\n"
+			return "[#{@health} ♥] #{@name} at #{@row}, #{@col}\n" +
+					"Intelligence: #{@intelligence}\n" +
+					"Strength: #{@strength}\n"
 		end
 
 		def attack
@@ -59,6 +55,12 @@ module Irrgarten
 
 		def defend(received_attack)
 			raise NotImplementedError.new
+		end
+
+		protected
+
+		def got_wounded
+			@health -= 1
 		end
 
 	end

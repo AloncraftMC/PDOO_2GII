@@ -37,9 +37,9 @@ module Irrgarten
 		end
 
 		def to_s
-			return "[#{@health} ♥] #{@name} at #{@row}, #{@col}\n
-				Intelligence: #{@intelligence}\n
-				Strength: #{@strength}\n";
+			return "[#{@health} ♥] #{@name} at #{@row}, #{@col}\n" +
+					"Intelligence: #{@intelligence}\n" +
+					"Strength: #{@strength}\n";
 		end
 
 		def got_wounded

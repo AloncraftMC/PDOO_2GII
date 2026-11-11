@@ -67,6 +67,17 @@ public class Game {
     
     private void configureLabyrinth(){
         
+        this.labyrinth.addBlock(Orientation.HORIZONTAL, 2, 2, 4);
+        this.labyrinth.addBlock(Orientation.VERTICAL, 5, 6, 3);
+
+        Monster m1 = new Monster("Monster #1", Dice.randomIntelligence(), Dice.randomStrength());
+        this.monsters.add(m1);
+        this.labyrinth.addMonster(4, 4, m1);
+
+        Monster m2 = new Monster("Monster #2", Dice.randomIntelligence(), Dice.randomStrength());
+        this.monsters.add(m2);
+        this.labyrinth.addMonster(7, 2, m2);
+    
     }
     
     private void nextPlayer(){

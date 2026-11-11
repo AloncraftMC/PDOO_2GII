@@ -14,6 +14,7 @@ import irrgarten.GameState;
 public class GameFrame extends javax.swing.JFrame implements UI {
     
     private Cursors cursors;
+    private javax.swing.JPanel labyrinthPanel;
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(GameFrame.class.getName());
 
@@ -21,9 +22,39 @@ public class GameFrame extends javax.swing.JFrame implements UI {
      * Creates new form GameFrame
      */
     public GameFrame() {
+
         initComponents();
+
+        labyrinthPanel = new javax.swing.JPanel(new java.awt.GridBagLayout());
+        labyrinthPanel.setBackground(java.awt.Color.WHITE);
+
+        labyrinthText.setOpaque(false);
+        labyrinthText.setEditable(false);
+        labyrinthText.setFocusable(false);
+        labyrinthText.setBorder(null);
+
+        labyrinthPanel.add(labyrinthText);
+
+        jScrollPane1.setViewportView(labyrinthPanel);
+
+        jScrollPane1.setHorizontalScrollBarPolicy(
+            javax.swing.JScrollPane.HORIZONTAL_SCROLLBAR_NEVER
+        );
+
+        jScrollPane1.setVerticalScrollBarPolicy(
+            javax.swing.JScrollPane.VERTICAL_SCROLLBAR_NEVER
+        );
+
+        currentPlayerTextField.setFont(new java.awt.Font("Liberation Sans", 1, 32));
+        currentPlayerTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        winnerTextField.setFont(new java.awt.Font("Liberation Sans", 1, 32));
+        winnerTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
         this.cursors = new Cursors(this, true);
+
         setVisible(true);
+
     }
 
     /**
@@ -109,17 +140,41 @@ public class GameFrame extends javax.swing.JFrame implements UI {
     }// </editor-fold>//GEN-END:initComponents
 
     public void showGame(GameState gameState){
-        
-        labyrinthText.setText(gameState.getLabyrinth());
+
+        String labyrinth = gameState.getLabyrinth();
+
+        labyrinthText.setText(labyrinth);
+
+        String[] labyrinthLines = labyrinth.split("\\R");
+
+        int numberRows = labyrinthLines.length;
+        int numberColumns = 1;
+
+        for (String line : labyrinthLines) {
+            if (line.length() > numberColumns) {
+                numberColumns = line.length();
+            }
+        }
+
+        labyrinthText.setRows(numberRows);
+        labyrinthText.setColumns(numberColumns);
+        labyrinthText.setCaretPosition(0);
+
         playersText.setText(gameState.getPlayers());
         monstersText.setText(gameState.getMonsters());
         logText.setText(gameState.getLog());
-        
+
         currentPlayerTextField.setText("Player #" + gameState.getCurrentPlayer());
-        winnerTextField.setText((gameState.isWinner() ? "WINNER: " + gameState.getCurrentPlayer() : ""));
-        
+
+        winnerTextField.setText(
+            gameState.isWinner() ? "WINNER: " + gameState.getCurrentPlayer() : ""
+        );
+
+        labyrinthPanel.revalidate();
+        labyrinthPanel.repaint();
+
         repaint();
-        
+
     }
     
     public Directions nextMove(){

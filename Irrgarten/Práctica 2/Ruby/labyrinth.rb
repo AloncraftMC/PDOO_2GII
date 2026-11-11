@@ -44,10 +44,6 @@ module Irrgarten
 			raise NotImplementedError.new
 		end
 
-		def put_player_2d
-			raise NotImplementedError.new
-		end
-
 		def have_a_winner
 			return @players[@exit_row][@exit_col] != nil
 		end
@@ -67,6 +63,18 @@ module Irrgarten
 			end
 			
 			return string
+
+		end
+
+		def add_monster(row, col, monster)
+
+			if empty_pos(row, col)
+
+				@labyrinth[row][col] = MONSTER_CHAR
+				@monsters[row][col] = monster
+				monster.set_pos(row, col)
+
+			end
 
 		end
 
@@ -94,18 +102,6 @@ module Irrgarten
 
 		def can_step_on(row, col)
 			return empty_pos(row, col) || monster_pos(row, col) || exit_pos(row, col)
-		end
-
-		def add_monster(row, col, monster)
-
-			if empty_pos(row, col)
-
-				@labyrinth[row][col] = MONSTER_CHAR
-				@monsters[row][col] = monster
-				monster.set_pos(row, col)
-
-			end
-
 		end
 
 		def update_old_pos(row, col)
@@ -159,6 +155,10 @@ module Irrgarten
 
 			return [row, col]
 
+		end
+
+		def put_player_2d
+			raise NotImplementedError.new
 		end
 
 	end

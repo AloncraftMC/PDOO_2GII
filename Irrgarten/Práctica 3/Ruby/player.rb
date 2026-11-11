@@ -19,6 +19,9 @@ module Irrgarten
 			@intelligence = intelligence
 			@strength = strength
 
+			@row = -1
+			@col = -1
+
 			@health = INITIAL_HEALTH
 
 			@consecutive_hits = 0
@@ -58,6 +61,49 @@ module Irrgarten
 
 		end
 
+		def set_pos(row, col)
+			
+			if row >= 0 && col >= 0
+				@row = row
+				@col = col
+			end
+
+		end
+
+		def dead
+			return @health <= 0
+		end
+
+		def attack
+			return @strength + sum_weapons
+		end
+
+		def defend(received_attack)
+			return self.manage_hit(received_attack)
+		end
+
+		def resurrect
+
+			@health = INITIAL_HEALTH
+
+			@consecutive_hits = 0
+
+			@weapons.clear
+			@shields.clear
+
+		end
+
+		def to_s
+			return "[#{@health} ♥] #{@name} at #{@row}, #{@col}\n" +
+					"Intelligence: #{@intelligence}\n" +
+					"Strength: #{@strength}\n" +
+					"Consecutive Hits: #{@consecutive_hits}\n" +
+					"Weapons: #{@weapons.map(&:to_s).join(', ')}\n" +
+					"Shields: #{@shields.map(&:to_s).join(', ')}\n"
+		end
+
+		private
+
 		def receive_weapon(w)
 			
 			@weapons.reject! { |wi| wi.discard }
@@ -80,58 +126,12 @@ module Irrgarten
 
 		end
 
-		def manage_hit(received_attack)
-
-			defense = defensive_energy
-
-			if defense < received_attack
-
-				self.got_wounded
-				self.inc_consecutive_hits
-
-			else	self.reset_hits
-			end
-
-			lose = @consecutive_hits == HITS2LOSE || self.dead
-
-			if lose	self.reset_hits
-			end
-
-			return lose
-
+		def new_weapon
+			return Weapon.new(Dice.weapon_power, Dice.uses_left)
 		end
 
-		def set_pos(row, col)
-			
-			if row >= 0 && col >= 0
-				@row = row
-				@col = col
-			end
-
-		end
-
-		def dead
-			return @health <= 0
-		end
-
-		def reset_hits
-			@consecutive_hits = 0
-		end
-
-		def inc_consecutive_hits
-			@consecutive_hits += 1
-		end
-
-		def got_wounded
-			@health -= 1
-		end
-
-		def attack
-			return @strength + sum_weapons
-		end
-
-		def defend(received_attack)
-			return self.manage_hit(received_attack)
+		def new_shield
+			return Shield.new(Dice.shield_power, Dice.uses_left)
 		end
 
 		def sum_weapons
@@ -154,29 +154,39 @@ module Irrgarten
 			return @intelligence + sum_shields
 		end
 
-		def new_weapon
-			return Weapon.new(Dice.weapon_power, Dice.uses_left)
+		def manage_hit(received_attack)
+
+			defense = defensive_energy
+
+			if defense < received_attack
+
+				got_wounded
+				inc_consecutive_hits
+
+			else
+				reset_hits
+			end
+
+			lose = @consecutive_hits == HITS2LOSE || dead
+
+			if lose
+				reset_hits
+			end
+
+			return lose
+
 		end
 
-		def new_shield
-			return Shield.new(Dice.shield_power, Dice.uses_left)
-		end
-
-		def resurrect
-
-			@health = INITIAL_HEALTH
-
+		def reset_hits
 			@consecutive_hits = 0
-
-			@weapons.clear
-			@shields.clear
-
 		end
 
-		def to_s
-			return "[#{@health} ♥] #{@name} at #{@row}, #{@col}\n
-				Intelligence: #{@intelligence}\n
-				Strength: #{@strength}\n";
+		def got_wounded
+			@health -= 1
+		end
+
+		def inc_consecutive_hits
+			@consecutive_hits += 1
 		end
 
 	end

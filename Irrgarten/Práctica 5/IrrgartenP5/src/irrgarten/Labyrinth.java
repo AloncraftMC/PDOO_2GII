@@ -121,7 +121,7 @@ public class Labyrinth {
         
     }
     
-    public Directions[] validMoves(int row, int col){
+    public ArrayList<Directions> validMoves(int row, int col){
         
         ArrayList<Directions> output = new ArrayList<>();
         
@@ -130,10 +130,11 @@ public class Labyrinth {
         if(this.canStepOn(row, col + 1)) output.add(Directions.RIGHT);
         if(this.canStepOn(row, col - 1)) output.add(Directions.LEFT);
         
-        return output.toArray(new Directions[0]);
+        return output;
         
     }
     
+    @Override
     public String toString(){
         
         String string = "";

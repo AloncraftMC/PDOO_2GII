@@ -218,3 +218,37 @@
 	- [`vista.rb`](Ejercicios/Ejercicio%205/Practica3Sesion1/vista/vista.rb)
 - Diagrama:
 	- [`Sequence Diagram1.jpg`](Ejercicios/Ejercicio%205/Sequence%20Diagram1.jpg)
+
+#### Ejercicio 6
+- Java:
+	- [`Personaje.java`](Ejercicios/Ejercicio%206/Practica3-Sesion2/src/practica3/sesion2/Personaje.java)
+	- [`Practica3Sesion2.java`](Ejercicios/Ejercicio%206/Practica3-Sesion2/src/practica3/sesion2/Practica3Sesion2.java)
+- Diagrama:
+	- [`PDOO Ejercicio 6.png`](Ejercicios/Ejercicio%206/PDOO%20Ejercicio%206.png)
+
+## Estudio
+
+#### Mini-Reto 1
+- Java:
+	- [`Main.java`](Estudio/Mini-Reto%201/Java/Mini-Reto%201/src/Main.java)
+	- [`Asignatura.java`](Estudio/Mini-Reto%201/Java/Mini-Reto%201/src/matricula/Asignatura.java)
+	- [`Estudiante.java`](Estudio/Mini-Reto%201/Java/Mini-Reto%201/src/matricula/Estudiante.java)
+- Ruby:
+	- [`main.rb`](Estudio/Mini-Reto%201/Ruby/main.rb)
+	- [`asignatura.rb`](Estudio/Mini-Reto%201/Ruby/asignatura.rb)
+	- [`estudiante.rb`](Estudio/Mini-Reto%201/Ruby/estudiante.rb)
+
+#### Reto 2
+- Java:
+	- [`Main.java`](Estudio/Reto%202/Java/Reto%202/src/Main.java)
+	- [`Departamento.java`](Estudio/Reto%202/Java/Reto%202/src/Departamento.java)
+	- [`Empleado.java`](Estudio/Reto%202/Java/Reto%202/src/Empleado.java)
+	- [`Empresa.java`](Estudio/Reto%202/Java/Reto%202/src/Empresa.java)
+
+#### Reto 3A
+- Java:
+	- [`Main.java`](Estudio/Reto%203A/Reto%203A/src/Main.java)
+	- [`Equipo.java`](Estudio/Reto%203A/Reto%203A/src/Equipo.java)
+	- [`Jugador.java`](Estudio/Reto%203A/Reto%203A/src/Jugador.java)
+	- [`Partido.java`](Estudio/Reto%203A/Reto%203A/src/Partido.java)
+	- [`TipoTiro.java`](Estudio/Reto%203A/Reto%203A/src/TipoTiro.java)

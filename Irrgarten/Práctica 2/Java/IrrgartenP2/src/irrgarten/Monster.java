@@ -59,8 +59,9 @@ public class Monster {
 	this.health--;
     }
 
+    @Override
     public String toString(){
-        return "[" + this.health + " ♥] " + this.name + " at " + this.row + ", " + this.col + "\n"
+        return "[" + this.health + " ♥] Monster " + this.name + " at " + this.row + ", " + this.col + "\n"
                 + "Intelligence: " + this.intelligence + "\n"
                 + "Strength: " + this.strength + "\n";
     }

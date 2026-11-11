@@ -17,6 +17,9 @@ module Irrgarten
 			@intelligence = intelligence
 			@strength = strength
 
+			@row = -1
+			@col = -1
+
 			@consecutive_hits = 0
 
 			@health = INITIAL_HEALTH
@@ -34,18 +37,6 @@ module Irrgarten
 			raise NotImplementedError.new
 		end
 
-		def receive_weapon
-			raise NotImplementedError.new
-		end
-
-		def receive_shield
-			raise NotImplementedError.new
-		end
-
-		def manage_hit
-			raise NotImplementedError.new
-		end
-
 		def set_pos(row, col)
 			
 			if row >= 0 && col >= 0
@@ -59,24 +50,43 @@ module Irrgarten
 			return @health <= 0
 		end
 
-		def reset_hits
-			@consecutive_hits = 0
-		end
-
-		def inc_consecutive_hits
-			@consecutive_hits += 1
-		end
-
-		def got_wounded
-			@health -= 1
-		end
-
 		def attack
 			return @strength + sum_weapons
 		end
 
 		def defend(received_attack)
 			raise NotImplementedError.new
+		end
+
+		def resurrect
+
+		end
+
+		def to_s
+			return "[#{@health} ♥] #{@name} at #{@row}, #{@col}\n" +
+					"Intelligence: #{@intelligence}\n" +
+					"Strength: #{@strength}\n" +
+					"Consecutive Hits: #{@consecutive_hits}\n" +
+					"Weapons: #{@weapons.map(&:to_s).join(', ')}\n" +
+					"Shields: #{@shields.map(&:to_s).join(', ')}\n"
+		end
+
+		private
+
+		def receive_weapon
+			raise NotImplementedError.new
+		end
+
+		def receive_shield
+			raise NotImplementedError.new
+		end
+
+		def new_weapon
+			return Weapon.new(Dice.weapon_power, Dice.uses_left)
+		end
+
+		def new_shield
+			return Shield.new(Dice.shield_power, Dice.uses_left)
 		end
 
 		def sum_weapons
@@ -99,20 +109,20 @@ module Irrgarten
 			return @intelligence + sum_shields
 		end
 
-		def new_weapon
-			return Weapon.new(Dice.weapon_power, Dice.uses_left)
+		def manage_hit
+			raise NotImplementedError.new
 		end
 
-		def new_shield
-			return Shield.new(Dice.shield_power, Dice.uses_left)
+		def reset_hits
+			@consecutive_hits = 0
 		end
 
-		def resurrect
-
+		def got_wounded
+			@health -= 1
 		end
 
-		def to_s
-
+		def inc_consecutive_hits
+			@consecutive_hits += 1
 		end
 
 	end

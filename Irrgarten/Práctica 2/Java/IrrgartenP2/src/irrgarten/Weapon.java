@@ -33,6 +33,7 @@ public class Weapon {
         return Dice.discardElement(this.uses);
     }
     
+    @Override
     public String toString(){
         return "W[" + this.power + ", " + this.uses + "]";
     }

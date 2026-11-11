@@ -33,6 +33,7 @@ module Irrgarten
 
 		def next_step(preferred_direction)
 
+			@log = ""
 			dead = @current_player.dead
 
 			if !dead
@@ -53,13 +54,9 @@ module Irrgarten
 					self.manage_reward(winner)
 
 				end
-
-				is_dead_after_combat = @current_player.dead
-
-				if is_dead_after_combat
-					self.manage_resurrection
-				end
-
+				
+			else
+				manage_resurrection
 			end
 
 			end_game = self.finished
@@ -85,6 +82,17 @@ module Irrgarten
 
 		def configure_labyrinth
 
+			@labyrinth.add_block(Orientation::HORIZONTAL, 2, 2, 4)
+			@labyrinth.add_block(Orientation::VERTICAL, 5, 6, 3)
+
+			m1 = Monster.new("Monster #1", Dice.random_intelligence, Dice.random_strength)
+			@monsters.push(m1)
+			@labyrinth.add_monster(4, 4, m1)
+
+			m2 = Monster.new("Monster #2", Dice.random_intelligence, Dice.random_strength)
+			@monsters.push(m2)
+			@labyrinth.add_monster(7, 2, m2)
+			
 		end
 
 		def next_player
@@ -109,25 +117,25 @@ module Irrgarten
 			
 			rounds = 0
 			winner = GameCharacter::PLAYER
-			lose = false
+
+			player_attack = @current_player.attack
+			lose = monster.defend(player_attack)
 
 			while !lose && rounds < MAX_ROUNDS
 
-				player_attack = @current_player.attack
-				lose = monster.defend(player_attack)
+				winner = GameCharacter::MONSTER
+				rounds += 1
+
+				monster_attack = monster.attack
+				lose = @current_player.defend(monster_attack)
 
 				if !lose
 
-					monster_attack = monster.attack
-					lose = @current_player.defend(monster_attack)
-
-					if lose
-						winner = GameCharacter::MONSTER
-					end
+					player_attack = @current_player.attack
+					winner = GameCharacter::PLAYER
+					lose = monster.defend(player_attack)
 
 				end
-
-				rounds += 1
 
 			end
 

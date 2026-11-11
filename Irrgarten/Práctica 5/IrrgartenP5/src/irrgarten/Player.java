@@ -71,19 +71,12 @@ public class Player extends LabyrinthCharacter {
         return this.number;
     }
     
-    public Directions move(Directions direction, Directions[] validMoves){
+    public Directions move(Directions direction, ArrayList<Directions> validMoves){
         
-        int size = validMoves.length;
+        int size = validMoves.size();
+        boolean contained = validMoves.contains(direction);
         
-        boolean contained = false;
-        
-        for(Directions dir : validMoves)
-            if(dir == direction)    contained = true;
-        
-        if(size > 0 && !contained)
-            return validMoves[0];
-        
-        return direction;
+        return (size > 0 && !contained) ? validMoves.get(0) : direction;
         
     }
     
@@ -122,10 +115,17 @@ public class Player extends LabyrinthCharacter {
     
     @Override
     public String toString(){
-        return super.toString() +
-                "Weapons: " + this.weapons.toString() + "\n" +
-                "Shields: " + this.shields.toString() + "\n" +
-                "Consecutive Hits: " + this.consecutiveHits;
+
+        String result = super.toString()
+                + "Consecutive Hits: " + this.consecutiveHits + "\n"
+                + "Weapons:\n";
+        for(Weapon weapon : this.weapons) result += "  " + weapon + "\n";
+
+        result += "Shields:\n";
+        for(Shield shield : this.shields) result += "  " + shield + "\n";
+
+        return result + "\n";
+        
     }
     
     private void receiveWeapon(Weapon w){

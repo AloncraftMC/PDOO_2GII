@@ -47,6 +47,7 @@ public class Game {
     
     public boolean nextStep(Directions preferredDirection){
         
+        this.log = "";
         boolean dead = this.currentPlayer.dead();
         
         if(!dead){
@@ -65,10 +66,7 @@ public class Game {
                 
             }
             
-            boolean isDeadAfterCombat = this.currentPlayer.dead();
-            if(isDeadAfterCombat)   this.manageResurrection();
-            
-        }
+        }else   this.manageResurrection();
         
         boolean endGame = this.finished();
         
@@ -96,6 +94,17 @@ public class Game {
     
     private void configureLabyrinth(){
         
+        this.labyrinth.addBlock(Orientation.HORIZONTAL, 2, 2, 4);
+        this.labyrinth.addBlock(Orientation.VERTICAL, 5, 6, 3);
+
+        Monster m1 = new Monster("Monster #1", Dice.randomIntelligence(), Dice.randomStrength());
+        this.monsters.add(m1);
+        this.labyrinth.addMonster(4, 4, m1);
+
+        Monster m2 = new Monster("Monster #2", Dice.randomIntelligence(), Dice.randomStrength());
+        this.monsters.add(m2);
+        this.labyrinth.addMonster(7, 2, m2);
+    
     }
     
     private void nextPlayer(){
@@ -110,7 +119,7 @@ public class Game {
         int currentRow = this.currentPlayer.getRow();
         int currentCol = this.currentPlayer.getCol();
         
-        Directions[] validMoves = this.labyrinth.validMoves(currentRow, currentCol);
+        ArrayList<Directions> validMoves = this.labyrinth.validMoves(currentRow, currentCol);
         
         return this.currentPlayer.move(preferredDirection, validMoves);
         
@@ -120,23 +129,25 @@ public class Game {
         
         int rounds = 0;
         GameCharacter winner = GameCharacter.PLAYER;
-        boolean lose = false;
         
-        while(!lose && rounds < MAX_ROUNDS){
+        float playerAttack = this.currentPlayer.attack();
+        boolean lose = monster.defend(playerAttack);
+        
+        while(!lose && rounds < Game.MAX_ROUNDS){
             
-            float playerAttack = this.currentPlayer.attack();
-            lose = monster.defend(playerAttack);
+            winner = GameCharacter.MONSTER;
+            rounds++;
+            
+            float monsterAttack = monster.attack();
+            lose = this.currentPlayer.defend(monsterAttack);
             
             if(!lose){
                 
-                float monsterAttack = monster.attack();
-                lose = this.currentPlayer.defend(monsterAttack);
-                
-                if(lose) winner = GameCharacter.MONSTER;
+                playerAttack = this.currentPlayer.attack();
+                winner = GameCharacter.PLAYER;
+                lose = monster.defend(playerAttack);
                 
             }
-            
-            rounds++;
             
         }
         

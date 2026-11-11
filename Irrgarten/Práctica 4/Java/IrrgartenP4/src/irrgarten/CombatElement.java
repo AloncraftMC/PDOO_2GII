@@ -33,6 +33,7 @@ public abstract class CombatElement {
         return Dice.discardElement(this.uses);
     }
     
+    @Override
     public String toString(){
         return "[" + this.effect + ", " + this.uses + "]";
     }

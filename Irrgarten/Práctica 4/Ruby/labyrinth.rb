@@ -108,48 +108,6 @@ module Irrgarten
 
 		end
 
-		def put_player_2d(old_row, old_col, row, col, player)
-			
-			output = nil
-
-			if self.can_step_on(row, col)
-
-				if self.pos_ok(old_row, old_col)
-
-					p = @players[old_row][old_col]
-
-					if p == player
-
-						self.update_old_pos(old_row, old_col)
-						@players[old_row][old_col] = nil
-
-					end
-
-				end
-
-				monster_pos = self.monster_pos(row, col)
-
-				if monster_pos
-
-					@labyrinth[row][col] = COMBAT_CHAR
-					output = @monsters[row][col]
-
-				else
-
-					number = player.number
-					@labyrinth[row][col] = number
-
-				end
-
-				@players[row][col] = player
-				player.set_pos(row, col)
-
-			end
-
-			return output
-
-		end
-
 		def have_a_winner
 			return @players[@exit_row][@exit_col] != nil
 		end
@@ -169,6 +127,18 @@ module Irrgarten
 			end
 			
 			return string
+
+		end
+
+		def add_monster(row, col, monster)
+
+			if empty_pos(row, col)
+
+				@labyrinth[row][col] = MONSTER_CHAR
+				@monsters[row][col] = monster
+				monster.set_pos(row, col)
+
+			end
 
 		end
 
@@ -196,18 +166,6 @@ module Irrgarten
 
 		def can_step_on(row, col)
 			return empty_pos(row, col) || monster_pos(row, col) || exit_pos(row, col)
-		end
-
-		def add_monster(row, col, monster)
-
-			if empty_pos(row, col)
-
-				@labyrinth[row][col] = MONSTER_CHAR
-				@monsters[row][col] = monster
-				monster.set_pos(row, col)
-
-			end
-
 		end
 
 		def update_old_pos(row, col)
@@ -265,6 +223,48 @@ module Irrgarten
 
 		def substitute_player(old_player, new_player)
 			@players[old_player.row][old_player.col] = new_player
+		end
+
+		def put_player_2d(old_row, old_col, row, col, player)
+			
+			output = nil
+
+			if self.can_step_on(row, col)
+
+				if self.pos_ok(old_row, old_col)
+
+					p = @players[old_row][old_col]
+
+					if p == player
+
+						self.update_old_pos(old_row, old_col)
+						@players[old_row][old_col] = nil
+
+					end
+
+				end
+
+				monster_pos = self.monster_pos(row, col)
+
+				if monster_pos
+
+					@labyrinth[row][col] = COMBAT_CHAR
+					output = @monsters[row][col]
+
+				else
+
+					number = player.number.to_s
+					@labyrinth[row][col] = number
+
+				end
+
+				@players[row][col] = player
+				player.set_pos(row, col)
+
+			end
+
+			return output
+
 		end
 
 	end

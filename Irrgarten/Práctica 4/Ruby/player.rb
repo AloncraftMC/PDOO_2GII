@@ -4,7 +4,7 @@ module Irrgarten
 
 	class Player < LabyrinthCharacter
 
-		attr_reader :number, :row, :col, :weapons, :consecutive_hits
+		attr_reader :number, :row, :col, :weapons, :shields, :consecutive_hits
 
 		MAX_WEAPONS = 2
 		MAX_SHIELDS = 3
@@ -14,6 +14,8 @@ module Irrgarten
 		def initialize(number, intelligence, strength)
 
 			super("Player ##{number}", intelligence, strength, INITIAL_HEALTH)
+
+			@number = number
 
 			@consecutive_hits = 0
 
@@ -64,6 +66,34 @@ module Irrgarten
 
 		end
 
+		def attack
+			return @strength + sum_weapons
+		end
+
+		def defend(received_attack)
+			return self.manage_hit(received_attack)
+		end
+
+		def resurrect
+
+			@health = INITIAL_HEALTH
+
+			@consecutive_hits = 0
+
+			@weapons.clear
+			@shields.clear
+
+		end
+
+		def to_s
+			return super +
+				"Consecutive Hits: #{@consecutive_hits}\n" +
+				"Weapons: [#{@weapons.map(&:to_s).join(', ')}]\n" +
+				"Shields: [#{@shields.map(&:to_s).join(', ')}]\n"
+		end
+
+		private
+
 		def receive_weapon(w)
 			
 			@weapons.reject! { |wi| wi.discard }
@@ -86,41 +116,12 @@ module Irrgarten
 
 		end
 
-		def manage_hit(received_attack)
-
-			defense = defensive_energy
-
-			if defense < received_attack
-
-				self.got_wounded
-				self.inc_consecutive_hits
-
-			else	self.reset_hits
-			end
-
-			lose = @consecutive_hits == HITS2LOSE || self.dead
-
-			if lose	self.reset_hits
-			end
-
-			return lose
-
+		def new_weapon
+			return Weapon.new(Dice.weapon_power, Dice.uses_left)
 		end
 
-		def reset_hits
-			@consecutive_hits = 0
-		end
-
-		def inc_consecutive_hits
-			@consecutive_hits += 1
-		end
-
-		def attack
-			return @strength + sum_weapons
-		end
-
-		def defend(received_attack)
-			return self.manage_hit(received_attack)
+		def new_shield
+			return Shield.new(Dice.shield_power, Dice.uses_left)
 		end
 
 		def sum_weapons
@@ -143,27 +144,35 @@ module Irrgarten
 			return @intelligence + sum_shields
 		end
 
-		def new_weapon
-			return Weapon.new(Dice.weapon_power, Dice.uses_left)
+		def manage_hit(received_attack)
+
+			defense = defensive_energy
+
+			if defense < received_attack
+
+				got_wounded
+				inc_consecutive_hits
+
+			else
+				reset_hits
+			end
+
+			lose = @consecutive_hits == HITS2LOSE || dead
+
+			if lose	
+				reset_hits
+			end
+
+			return lose
+
 		end
 
-		def new_shield
-			return Shield.new(Dice.shield_power, Dice.uses_left)
-		end
-
-		def resurrect
-
-			@health = INITIAL_HEALTH
-
+		def reset_hits
 			@consecutive_hits = 0
-
-			@weapons.clear
-			@shields.clear
-
 		end
 
-		def to_s
-			return super + "\nWeapons: #{@weapons}\nShields: #{@shields}\nConsecutive Hits: #{@consecutive_hits}"
+		def inc_consecutive_hits
+			@consecutive_hits += 1
 		end
 
 	end

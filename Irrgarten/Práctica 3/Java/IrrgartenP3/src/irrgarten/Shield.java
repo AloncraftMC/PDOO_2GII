@@ -33,6 +33,7 @@ public class Shield {
         return Dice.discardElement(this.uses);
     }
     
+    @Override
     public String toString(){
         return "S[" + this.protection + ", " + this.uses + "]";
     }

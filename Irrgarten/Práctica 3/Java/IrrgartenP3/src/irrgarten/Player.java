@@ -38,6 +38,9 @@ public class Player {
         
         this.health = Player.INITIAL_HEALTH;
         
+        this.row = -1;
+        this.col = -1;
+        
         this.consecutiveHits = 0;
         
         this.weapons = new ArrayList<Weapon>();
@@ -83,19 +86,12 @@ public class Player {
         return this.health <= 0;
     }
     
-    public Directions move(Directions direction, Directions[] validMoves){
+    public Directions move(Directions direction, ArrayList<Directions> validMoves){
         
-        int size = validMoves.length;
+        int size = validMoves.size();
+        boolean contained = validMoves.contains(direction);
         
-        boolean contained = false;
-        
-        for(Directions dir : validMoves)
-            if(dir == direction)    contained = true;
-        
-        if(size > 0 && !contained)
-            return validMoves[0];
-        
-        return direction;
+        return (size > 0 && !contained) ? validMoves.get(0) : direction;
         
     }
     
@@ -130,10 +126,21 @@ public class Player {
         
     }
     
+    @Override
     public String toString(){
-        return "[" + this.health + " ♥] " + this.name + " at " + this.row + ", " + this.col + "\n"
+
+        String result = "[" + this.health + " ♥] " + this.name + " at " + this.row + ", " + this.col + "\n"
                 + "Intelligence: " + this.intelligence + "\n"
-                + "Strength: " + this.strength + "\n";
+                + "Strength: " + this.strength + "\n"
+                + "Consecutive Hits: " + this.consecutiveHits + "\n"
+                + "Weapons:\n";
+        for(Weapon weapon : this.weapons) result += "  " + weapon + "\n";
+
+        result += "Shields:\n";
+        for(Shield shield : this.shields) result += "  " + shield + "\n";
+
+        return result + "\n";
+        
     }
     
     private void receiveWeapon(Weapon w){

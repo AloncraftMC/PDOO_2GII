@@ -48,6 +48,17 @@ module Irrgarten
 
 		def configure_labyrinth
 
+			@labyrinth.add_block(Orientation::HORIZONTAL, 2, 2, 4)
+			@labyrinth.add_block(Orientation::VERTICAL, 5, 6, 3)
+
+			m1 = Monster.new("Monster #1", Dice.random_intelligence, Dice.random_strength)
+			@monsters.push(m1)
+			@labyrinth.add_monster(4, 4, m1)
+
+			m2 = Monster.new("Monster #2", Dice.random_intelligence, Dice.random_strength)
+			@monsters.push(m2)
+			@labyrinth.add_monster(7, 2, m2)
+			
 		end
 
 		def next_player
